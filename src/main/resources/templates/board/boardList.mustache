@@ -16,18 +16,18 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Title</th>
-        <th scope="col">Content</th>
+        <th scope="col">BoardNO</th>
+        <th scope="col">BoardTitle</th>
+        <th scope="col">BoardContent</th>
         
     </tr>
     </thead>
     <tbody>
 	    {{#list}}
 	        <tr>
-	            <th>{{id}}</th>
-	            <td><a href="/articles/show?id={{id}}">{{title}}</a></td>
-	            <td>{{content}}</td>
+	            <th>{{boardNo}}</th>
+	            <td><a href="/board/modifyBoard?boardNo={{boardNo}}">{{boardTitle}}</a></td>
+	            <td>{{boardContent}}</td>
 	            
 	        </tr>
 	    {{/list}}
@@ -42,17 +42,17 @@
 
 <div>
 	{{^list.isFirst}}
-	<a href="/articles/index?currentPage={{prePage}}&word={{word}}">이전페이지</a>
+	<a href="/board/boardList?currentPage={{prePage}}&word={{word}}">이전페이지</a>
 	{{/list.isFirst}}
 	
 	{{list.getNumber}}
 	
 	{{#list.hasNext}}
-	<a href="/articles/index?currentPage={{nextPage}}&word={{word}}">다음페이지</a>
+	<a href="/board/boardList?currentPage={{nextPage}}&word={{word}}">다음페이지</a>
 	{{/list.hasNext}}
 </div>
 
-<form action="/articles/index" method="get">
+<form action="/board/index" method="get">
 	<input type="text" name="word">
 	<button type="submit">검색</button>
 </form>
@@ -64,7 +64,7 @@
 <div>처음페이지? {{list.isFirst}}</div>
 <div>다음페이지? {{list.hasNext}}</div>
 
-<a href="/articles/new">New Article</a>
+<a href="/board/boardOne">New Article</a>
 
 {{>layouts/footer}}
 

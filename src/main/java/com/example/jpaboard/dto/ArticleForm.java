@@ -10,13 +10,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticleForm {
+	private Long id;
 	private String title;
 	private String content;
 	
+	
 	public Article toEntity() {
 		Article entity = new Article();
+		entity.setId(this.id);
 		entity.setTitle(this.title);
 		entity.setContent(this.content);
+		
 		return entity;
 	}
 }

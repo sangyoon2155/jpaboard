@@ -17,25 +17,25 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Title</th>
-        <th scope="col">Content</th>
+        <th scope="col">BoardNO</th>
+        <th scope="col">BoardTitle</th>
+        <th scope="col">BoardContent</th>
     </tr>
     </thead>
     <tbody>
     {{#article}}
     <tr>
-        <th>{{id}}</th>
-        <td>{{title}}</td>
-        <td>{{content}}</td>
+        <th>{{boardNo}}</th>
+        <td>{{boardTitle}}</td>
+        <td>{{boardContent}}</td>
     </tr>
     {{/article}}
     </tbody>
 </table>
 
-<a href="/articles/edit?id={{article.id}}" class="btn btn-primary">Edit</a>
-<a href="/articles/delete?id={{article.id}}" class="btn btn-danger">Delete</a>
-<a href="/articles">Go to Article List</a>
+<a href="/board/addBoard?boardNo={{board.boardNo}}" class="btn btn-primary">Edit</a>
+<!--<a href="/articles/delete?id={{article.id}}" class="btn btn-danger">Delete</a>-->
+<a href="/board">Go to Board List</a>
 
 
 {{>layouts/footer}}

@@ -10,18 +10,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="article")
-public class Article {
+@Table(name="board")
+public class Board {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	@Column(name="title")
-	private String title;
-	@Column(name="content")
-	private String content;
-	
+	private long boardNo;
+	@Column(name="board_title")
+	private String boardTitle;
+	@Column(name="board_content")
+	private String boardContent;
+
 }
