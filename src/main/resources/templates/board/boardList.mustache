@@ -23,14 +23,14 @@
     </tr>
     </thead>
     <tbody>
-	    {{#list}}
+	    {{#boardList}}
 	        <tr>
 	            <th>{{boardNo}}</th>
 	            <td><a href="/board/modifyBoard?boardNo={{boardNo}}">{{boardTitle}}</a></td>
 	            <td>{{boardContent}}</td>
 	            
 	        </tr>
-	    {{/list}}
+	    {{/boardList}}
     </tbody>
 </table>
 
@@ -40,29 +40,14 @@
 	{{/list.isFirst}}
 </div>
 
-<div>
-	{{^list.isFirst}}
-	<a href="/board/boardList?currentPage={{prePage}}&word={{word}}">이전페이지</a>
-	{{/list.isFirst}}
-	
-	{{list.getNumber}}
-	
-	{{#list.hasNext}}
-	<a href="/board/boardList?currentPage={{nextPage}}&word={{word}}">다음페이지</a>
-	{{/list.hasNext}}
-</div>
+
 
 <form action="/board/index" method="get">
 	<input type="text" name="word">
 	<button type="submit">검색</button>
 </form>
 
-<div>전체행: {{list.getTotalElements}}</div>
-<div>전체페이지: {{list.getTotalPages}}</div>
-<div>현재페이지: {{list.getNumber}}</div>
-<div>ROWPERPAGE: {{list.getSize}}</div>
-<div>처음페이지? {{list.isFirst}}</div>
-<div>다음페이지? {{list.hasNext}}</div>
+
 
 <a href="/board/boardOne">New Article</a>
 

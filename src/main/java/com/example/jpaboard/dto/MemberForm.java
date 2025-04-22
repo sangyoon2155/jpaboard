@@ -21,7 +21,7 @@ public class MemberForm {
 		entity.setMemberNo(this.memberNo);
 		entity.setMemberId(this.memberId);
 		entity.setMemberPw(this.memberPw);
-		entity.setMemberRole(this.memberRole);
+		entity.setMemberRole("'ROLE_USER'");
 		return entity;
 	}
 }
