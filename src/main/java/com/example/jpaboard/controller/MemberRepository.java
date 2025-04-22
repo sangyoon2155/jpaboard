@@ -1,7 +1,10 @@
 package com.example.jpaboard.controller;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.example.jpaboard.dto.MemberList;
 import com.example.jpaboard.entity.Member;
 
 public interface MemberRepository extends JpaRepository<Member, Integer>{
@@ -12,4 +15,6 @@ public interface MemberRepository extends JpaRepository<Member, Integer>{
 	Member findByMemberIdAndMemberPw(String memberId, String memberPw);
 	
 	Member findByMemberId(String memberId);
+	
+	List<MemberList> findAllBy();
 }

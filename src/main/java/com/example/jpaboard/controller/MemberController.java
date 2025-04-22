@@ -2,14 +2,17 @@ package com.example.jpaboard.controller;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.jpaboard.dto.MemberForm;
+import com.example.jpaboard.dto.MemberList;
 import com.example.jpaboard.entity.Member;
 import com.example.jpaboard.util.SHA256Util;
 
@@ -88,12 +91,14 @@ public class MemberController {
 	
 	// 회원목록
 	@GetMapping("/member/memberList")
-	public String memberList(HttpSession session) {
+	public String memberList(HttpSession session, Model model) {
 		// session 인증/인가 검사
 		if(session.getAttribute("loginMember") == null) {
 			return "redirect:/member/login";
 		} 
 		
+		List<MemberList> members = memberRepository.findAllBy();
+	    model.addAttribute("memberList", members);
 		// 사용자 목록 + 페이징 + id 검색
 		// Page<Member> = memberRepository.findByMemberIdContaining(Pageable pageable, String word);
 		

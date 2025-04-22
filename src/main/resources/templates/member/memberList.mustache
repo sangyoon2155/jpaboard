@@ -14,6 +14,28 @@
 	{{#msg}}
 		<div>{{msg}}</div>
 	{{/msg}}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>ROLE</th>
+			</tr>
+		</thead>
+		<tbody>
+            {{#memberList}}
+            <tr>
+                <td>{{memberId}}</td>
+                <td>{{memberRole}}</td>
+            </tr>
+            {{/memberList}}
+            {{^memberList}}
+            <tr>
+                <td colspan="2">회원이 없습니다.</td>
+            </tr>
+            {{/memberList}}
+        </tbody>
+	</table>
+	
 	<div>
 		{{loginMember.memberId}}님 반갑습니다.
 		<a href="/member/logout">로그아웃</a>

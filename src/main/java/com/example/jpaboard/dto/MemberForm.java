@@ -14,12 +14,14 @@ public class MemberForm {
 	private String memberId;
 	private String memberPw;
 	private String newPw;
+	private String memberRole;
 	
 	public Member toEntity() {
 		Member entity = new Member();
 		entity.setMemberNo(this.memberNo);
 		entity.setMemberId(this.memberId);
 		entity.setMemberPw(this.memberPw);
+		entity.setMemberRole(this.memberRole);
 		return entity;
 	}
 }
