@@ -1,6 +1,7 @@
 package com.example.jpaboard.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,14 @@ import lombok.extern.slf4j.Slf4j;
 public class ArticleController {
 	@Autowired // 의존성주입
 	private ArticleRepository articleRepository;
+	
+	@GetMapping("/articles/sqlTest")
+	public String sqlTest(Model model) {
+		Map<String, Object> map = articleRepository.getMinMaxCount("a%");
+		model.addAttribute("map", map);
+		log.debug(map.toString());
+		return "articles/sqlTest";
+	}
 	
 	@GetMapping("/articles/delete")
 	public String delete(@RequestParam long id, RedirectAttributes rda) {
