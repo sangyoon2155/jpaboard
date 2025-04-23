@@ -23,33 +23,25 @@
     </tr>
     </thead>
     <tbody>
-	    {{#boardList}}
+	    {{#list}}
 	        <tr>
 	            <th>{{boardNo}}</th>
-	            <td><a href="/board/modifyBoard?boardNo={{boardNo}}">{{boardTitle}}</a></td>
+	            <td><a href="/board/boardOne?boardNo={{boardNo}}">{{boardTitle}}</a></td>
 	            <td>{{boardContent}}</td>
 	            
 	        </tr>
-	    {{/boardList}}
+	    {{/list}}
     </tbody>
 </table>
 
-<div>
-	{{#list.isFirst}}
-		첫페이지 입니다
-	{{/list.isFirst}}
-</div>
-
-
-
-<form action="/board/index" method="get">
+<form action="/board/boardList" method="get">
 	<input type="text" name="word">
 	<button type="submit">검색</button>
 </form>
 
 
 
-<a href="/board/boardOne">New Article</a>
+<a href="/board/addBoard">New Article</a>
 
 {{>layouts/footer}}
 

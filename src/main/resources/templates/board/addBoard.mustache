@@ -9,21 +9,20 @@
 <body>
 {{>layouts/header}}
 
-{{#board}}
-<form class="container" action="/articles/addBoard" method="post">
-    <input name="boardNo" type="hidden" value="{{boardNo}}">
+
+<form class="container" action="/board/createBoard" method="post">
     <div class="mb-3">
         <label class="form-label">제목</label>
-        <input type="text" class="form-control" name="boardTitle" value="{{boardTitle}}">
+        <input type="text" class="form-control" name="boardTitle" required>
     </div>
     <div class="mb-3">
         <label class="form-label">내용</label>
-        <textarea class="form-control" rows="3" name="boardContent">{{board_content}}</textarea>
+        <textarea class="form-control" rows="3" name="boardContent" required></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     
 </form>
-{{/board}}
+
 
 {{>layouts/footer}}
 
